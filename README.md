@@ -26,7 +26,19 @@ $ gem install jekyll-image-data
 
 ## Usage
 
-TODO: Write usage instructions here
+This plugin gets executed in the `:posts, :pre_render` and `:pages,
+:pre_render` hooks. After execution, `post.data["images"]` and
+`page.data["images"]` will hold `alt` and `src` data for all images inside
+post/page.
+
+```ruby
+# page.data["images"] for pages
+post.data["images"] = [
+  { "alt" => "Alt text", "url" => "/media/images/800x600.png" },
+  { "alt" => "Alt text", "url" => "/media/images/800x600.jpg" },
+  { "alt" => "Alt text", "url" => "/media/images/800x600.gif" }
+]
+```
 
 ## Development
 
@@ -43,7 +55,7 @@ git commits and tags, and push the `.gem` file to
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at
-https://github.com/[USERNAME]/jekyll-image-data.
+https://github.com/rukbotto/jekyll-image-data.
 
 ## License
 
