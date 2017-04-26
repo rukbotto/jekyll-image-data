@@ -1,5 +1,7 @@
 # Jekyll Image Data
 
+[![Build Status](https://travis-ci.org/rukbotto/jekyll-image-data.svg?branch=master)](https://travis-ci.org/rukbotto/jekyll-image-data)
+
 Image data for Jekyll posts and pages. Crawls markdown files in search of image
 data ("src" and "alt" attributes) and makes it available as a post/page
 metadata attribute.
