@@ -2,10 +2,10 @@ module JekyllImageData
   class Crawler
     def initialize
       @alt = %r{!\[(.*)\]}
-      @url = %r{(/[\w/.-]*\.(jpg|png|gif))}
+      @url = %r{([\w/:.-]+\.?(jpg|png|gif)?)}
       @tag = %r{\[(.*)\]}
-      @image = %r{#{@alt}(\(#{@url}\).*|#{@tag})}
-      @reference = %r{#{@tag}: *#{@url}}
+      @image = %r{#{@alt}(\(#{@url}\)|#{@tag})}
+      @reference = %r{#{@tag}: +#{@url}}
     end
 
     def crawl(content)

@@ -24,4 +24,12 @@ sollicitudin tellus.
 
 ![800x600 gif](/media/images/800x600.gif)
 
+Vestibulum porttitor porta felis, in laoreet leo gravida a. Phasellus sed
+luctus nisl, eu dignissim sem. Donec consectetur, metus quis feugiat tincidunt,
+velit orci mollis orci, sed faucibus tellus ex et metus. Nullam quis elementum
+massa. Sed malesuada metus quis euismod gravida.
+
+![800x600 http][http]
+
 [jpg]: /media/images/800x600.jpg
+[http]: http://placehold.it/800x600

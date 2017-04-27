@@ -32,6 +32,13 @@ describe JekyllImageData::Crawler do
         expect(images[2]["url"]).to eq("/media/images/800x600.gif")
         expect(images[2]["alt"]).to eq("800x600 gif")
       end
+
+      context "When image url contains protocol" do
+        it "crawls image data and stores it in metadata" do
+          expect(images[3]["url"]).to eq("http://placehold.it/800x600")
+          expect(images[3]["alt"]).to eq("800x600 http")
+        end
+      end
     end
   end
 
@@ -52,6 +59,13 @@ describe JekyllImageData::Crawler do
       it "crawls gif image data and stores it in metadata" do
         expect(images[2]["url"]).to eq("/media/images/800x600.gif")
         expect(images[2]["alt"]).to eq("800x600 gif")
+      end
+
+      context "When image url contains protocol" do
+        it "crawls image data and stores it in metadata" do
+          expect(images[3]["url"]).to eq("http://placehold.it/800x600")
+          expect(images[3]["alt"]).to eq("800x600 http")
+        end
       end
     end
   end
