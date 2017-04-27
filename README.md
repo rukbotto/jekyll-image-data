@@ -43,7 +43,7 @@ Using liquid variables for setting the URL will result in the images not being
 crawled.
 
 This plugin gets executed in the `:posts, :pre_render` and `:pages,
-:pre_render` hooks. After execution, `post.data["images"]` or
+:post_init` hooks. After execution, `post.data["images"]` or
 `page.data["images"]` will hold `alt` and `src` data for all images inside
 post/page:
 
