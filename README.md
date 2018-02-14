@@ -28,7 +28,8 @@ $ gem install jekyll-image-data
 
 ## Usage
 
-You need to define your images using strict Markdown format:
+Define your images using Markdown format, plain HTML or by including a
+`.liquid` file:
 
 ```markdown
 ![Alt text](/image-url)
@@ -39,11 +40,16 @@ or
 [ref]: /image-url
 ```
 
-Using liquid variables for setting the URL will result in the images not being
-crawled.
+```html
+<img src="http://placehold.it/800x600" alt="Image">
+```
 
-This plugin gets executed in the `:posts, :pre_render` and `:pages,
-:post_init` hooks. After execution, `post.data["images"]` or
+```liquid
+{% include image.liquid %}
+```
+
+This plugin gets executed in the `:posts, :post_render` and `:pages,
+:post_render` hooks. After execution, `post.data["images"]` or
 `page.data["images"]` will hold `alt` and `src` data for all images inside
 post/page:
 
