@@ -45,7 +45,7 @@ or
 ```
 
 ```liquid
-{% include "image.liquid" %}
+{% include image.liquid %}
 ```
 
 This plugin gets executed in the `:posts, :post_render` and `:pages,
