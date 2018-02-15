@@ -17,6 +17,7 @@ describe JekyllImageData::Crawler do
   context "For posts" do
     describe "Crawler" do
       let(:images) { site.posts[0].data["images"] }
+      let(:images_no_alt) { site.posts[1].data["images"] }
 
       it "crawls png image data and stores it in metadata" do
         expect(images[0]["url"]).to eq("/media/images/800x600.png")
@@ -37,6 +38,27 @@ describe JekyllImageData::Crawler do
         it "crawls image data and stores it in metadata" do
           expect(images[3]["url"]).to eq("http://placehold.it/800x600")
           expect(images[3]["alt"]).to eq("800x600 http")
+        end
+      end
+
+      context "When plain HTML image is included" do
+        it "crawls image data and stores it in metadata" do
+          expect(images[4]["url"]).to eq("http://placehold.it/800x600")
+          expect(images[4]["alt"]).to eq("800x600 http")
+        end
+      end
+
+      context "When image liquid file is included" do
+        it "crawls image data and stores it in metadata" do
+          expect(images[5]["url"]).to eq("http://placehold.it/800x600")
+          expect(images[5]["alt"]).to eq("800x600 http")
+        end
+      end
+
+      context "When image with no 'alt' attribute is included" do
+        it "crawls image data and stores it in metadata" do
+          expect(images_no_alt[0]["url"]).to eq("http://placehold.it/800x600")
+          expect(images_no_alt[0]["alt"]).to eq("")
         end
       end
     end
@@ -65,6 +87,20 @@ describe JekyllImageData::Crawler do
         it "crawls image data and stores it in metadata" do
           expect(images[3]["url"]).to eq("http://placehold.it/800x600")
           expect(images[3]["alt"]).to eq("800x600 http")
+        end
+      end
+
+      context "When plain HTML image is included" do
+        it "crawls image data and stores it in metadata" do
+          expect(images[4]["url"]).to eq("http://placehold.it/800x600")
+          expect(images[4]["alt"]).to eq("800x600 http")
+        end
+      end
+
+      context "When image liquid file is included" do
+        it "crawls image data and stores it in metadata" do
+          expect(images[5]["url"]).to eq("http://placehold.it/800x600")
+          expect(images[5]["alt"]).to eq("800x600 http")
         end
       end
     end

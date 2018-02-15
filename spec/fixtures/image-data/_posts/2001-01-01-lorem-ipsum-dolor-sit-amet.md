@@ -31,5 +31,19 @@ massa. Sed malesuada metus quis euismod gravida.
 
 ![800x600 http][http]
 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae imperdiet
+magna. Maecenas suscipit quis nisi vel cursus. In hac habitasse platea
+dictumst. Sed a mi eu magna semper porta. Donec mollis, leo sit amet elementum
+egestas, est nibh euismod mauris, quis molestie libero ex in erat.
+
+<p><img src="http://placehold.it/800x600" alt="800x600 http"></p>
+
+Integer tortor dui, tincidunt et nisl vitae, fringilla venenatis nibh. Fusce
+hendrerit suscipit tortor at vulputate. Cras ullamcorper pellentesque massa,
+sed ultricies magna aliquam id. Phasellus nec augue vel lectus gravida dapibus
+eu a orci. Mauris fermentum nec sapien eu finibus.
+
+{% include image.liquid src="http://placehold.it/800x600" alt="800x600 http" %}
+
 [jpg]: /media/images/800x600.jpg
 [http]: http://placehold.it/800x600
