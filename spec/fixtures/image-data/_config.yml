@@ -13,3 +13,7 @@ defaults:
       type: pages
     values:
       layout: default
+
+image_data:
+  exclude:
+    - placehold.it/1x1

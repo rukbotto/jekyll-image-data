@@ -55,6 +55,12 @@ describe JekyllImageData::Crawler do
         end
       end
 
+      context "When image src is set to be excluded" do
+        it "doesn't crawl image data" do
+          expect(images[6]).to be_nil
+        end
+      end
+
       context "When image with no 'alt' attribute is included" do
         it "crawls image data and stores it in metadata" do
           expect(images_no_alt[0]["url"]).to eq("http://placehold.it/800x600")
@@ -101,6 +107,12 @@ describe JekyllImageData::Crawler do
         it "crawls image data and stores it in metadata" do
           expect(images[5]["url"]).to eq("http://placehold.it/800x600")
           expect(images[5]["alt"]).to eq("800x600 http")
+        end
+      end
+
+      context "When image src is set to be excluded" do
+        it "doesn't crawl image data" do
+          expect(images[6]).to be_nil
         end
       end
     end
