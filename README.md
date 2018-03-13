@@ -78,7 +78,7 @@ image_data:
     - https://upload.wikimedia.org
 ```
 
-You can put the complete url of the image or just part of it. In the above example, data from any image that contains the string `/media/images/800x600.png` or `https://upload.wikimedia.org` in the `src` attribute won't be added to the data variable for that post or page.
+You can put the complete URL of the image or just part of it. In the above example, data from any image that contains the string `/media/images/800x600.png` or `https://upload.wikimedia.org` in the `src` attribute won't be added to the data variable for any post or page.
 
 ## Development
 
