@@ -69,7 +69,7 @@ post.data["images"] = [
 
 ### Excluding images
 
-If you don't want data from some images to be included in the `post.data["images"]` or `page.data["images"]` variables, you can add the image URLs to the `exclude` setting in the `_config.yml` file:
+If you don't want data from some images to be included in the `post.data["images"]` or `page.data["images"]` variables, you can add the image URL to the `exclude` setting in the `_config.yml` file:
 
 ```yaml
 image_data:
