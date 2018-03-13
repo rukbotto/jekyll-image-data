@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/rukbotto/jekyll-image-data.svg?branch=master)](https://travis-ci.org/rukbotto/jekyll-image-data)
 
-Image data for Jekyll posts and pages. Crawls markdown files in search of image
+Image data for Jekyll posts and pages. Crawls generated HTML files in search of image
 data ("src" and "alt" attributes) and makes it available as a post/page
 metadata attribute.
 
@@ -66,6 +66,19 @@ post.data["images"] = [
   <img alt="{{ image.alt }}" src="{{ image.url }}" >
 {% endfor %}
 ```
+
+### Excluding images
+
+If you don't want data from some images to be included in the `post.data["images"]` or `page.data["images"]` variables, you can add the image URL to the `exclude` setting in the `_config.yml` file:
+
+```yaml
+image_data:
+  exclude:
+    - /media/images/800x600.png
+    - https://upload.wikimedia.org
+```
+
+You can put the complete url of the image or just part of it. In the above example, data from any image that contains the string `/media/images/800x600.png` or `https://upload.wikimedia.org` in the `src` attribute won't be added to the data variable for that post or page.
 
 ## Development
 
