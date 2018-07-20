@@ -111,9 +111,16 @@ describe JekyllImageData::Crawler do
       end
     end
 
+    context "When page contains image liquid file with caption" do
+      it "crawls image data successfully" do
+        expect(page_images[6]["url"]).to eq("http://placehold.it/800x600")
+        expect(page_images[6]["alt"]).to eq("800x600 http with caption")
+      end
+    end
+
     context "When page contains an excluded image" do
       it "doesn't crawl image data" do
-        expect(page_images[6]).to be_nil
+        expect(page_images[7]).to be_nil
       end
     end
   end
@@ -122,7 +129,15 @@ describe JekyllImageData::Crawler do
     let(:output) { site.posts[0].output }
 
     it "image data is present in HTML output" do
-      expect(output).to include("/media/images/800x600.png")
+      expect(output).to include("<meta name=\"image\" content=\"/media/images/800x600.png\">")
+    end
+  end
+
+  describe "When page is rendered" do
+    let(:output) { site.pages[0].output }
+
+    it "image data is present in HTML output" do
+      expect(output).to include("<meta name=\"image\" content=\"/media/images/800x600.png\">")
     end
   end
 end

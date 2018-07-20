@@ -9,7 +9,7 @@ module JekyllImageData
     post.data["images"] = @crawler.crawl(post.content, post.site.config)
   end
 
-  Jekyll::Hooks.register :pages, :pre_render do |page|
+  Jekyll::Hooks.register :pages, :post_init do |page|
     page.data["images"] = @crawler.crawl(page.content, page.site.config)
   end
 end
