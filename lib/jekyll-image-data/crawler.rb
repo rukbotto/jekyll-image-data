@@ -33,7 +33,7 @@ module JekyllImageData
 
       images.each do |image|
         image.delete("ref")
-        images.delete(image) if exclude.match?(image["url"])
+        images.delete(image) if exclude.match(image["url"])
       end
 
       images
