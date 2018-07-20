@@ -1,3 +1,9 @@
 {% assign src = include.src %}
 {% assign alt = include.alt %}
-<p><img src="{{ src }}" alt="{{ alt }}"></p>
+{% assign caption = include.caption %}
+<p>
+  <img src="{{ src }}" alt="{{ alt }}">
+  {% if caption %}
+    <span>{{ caption }}</span>
+  {% endif %}
+</p>

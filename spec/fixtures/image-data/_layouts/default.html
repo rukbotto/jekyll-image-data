@@ -4,6 +4,7 @@
   <head>
     <title>{{ page.title }}</title>
     <meta name="description" content="{{ page.excerpt | strip_html }}">
+    <meta name="image" content="{{ page.images[0].url }}">
   </head>
   <body>
     {{ content }}
