@@ -15,5 +15,4 @@ defaults:
       layout: default
 
 image_data:
-  exclude:
-    - placehold.it/1x1
+  exclude: "placehold.it/1x1"
