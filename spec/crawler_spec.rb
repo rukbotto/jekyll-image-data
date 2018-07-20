@@ -53,12 +53,12 @@ describe JekyllImageData::Crawler do
           expect(images[5]["url"]).to eq("http://placehold.it/800x600")
           expect(images[5]["alt"]).to eq("800x600 http")
         end
+      end
 
-        describe "and an HTML caption is added" do
-          it "crawls image data and stores it in metadata" do
-            expect(images[6]["url"]).to eq("http://placehold.it/800x600")
-            expect(images[6]["alt"]).to eq("800x600 http with caption")
-          end
+      context "When image liquid file is included with a caption" do
+        it "crawls image data and stores it in metadata" do
+          expect(images[6]["url"]).to eq("http://placehold.it/800x600")
+          expect(images[6]["alt"]).to eq("800x600 http with caption")
         end
       end
 
@@ -73,6 +73,14 @@ describe JekyllImageData::Crawler do
           expect(images_no_alt[0]["url"]).to eq("http://placehold.it/800x600")
           expect(images_no_alt[0]["alt"]).to eq("")
         end
+      end
+    end
+
+    describe "When post is rendered" do
+      let(:output) { site.posts[0].output }
+
+      it "image data is present in HTML output" do
+        expect(output).to include("/media/images/800x600.png")
       end
     end
   end
