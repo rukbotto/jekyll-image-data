@@ -53,11 +53,18 @@ describe JekyllImageData::Crawler do
           expect(images[5]["url"]).to eq("http://placehold.it/800x600")
           expect(images[5]["alt"]).to eq("800x600 http")
         end
+
+        describe "and an HTML caption is added" do
+          it "crawls image data and stores it in metadata" do
+            expect(images[6]["url"]).to eq("http://placehold.it/800x600")
+            expect(images[6]["alt"]).to eq("800x600 http with caption")
+          end
+        end
       end
 
       context "When image src is set to be excluded" do
         it "doesn't crawl image data" do
-          expect(images[6]).to be_nil
+          expect(images[7]).to be_nil
         end
       end
 
