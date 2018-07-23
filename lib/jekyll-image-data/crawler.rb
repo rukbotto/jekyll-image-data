@@ -2,7 +2,7 @@ module JekyllImageData
   class Crawler
     def initialize
       src = %r{(?:https|http|mailto)?(?:\:/)?/\S+}
-      alt = %r{[[[:alnum:]][[:space:]]-]+}
+      alt = %r{[[[:alnum:]][[:space:]]`~¡!@\#\$%^&*\(\)+=\[\]\{\}\\\|;\:',\.¿\?/_-]+}
 
       md_image = %r{!\[(.*)\]\((.*)\)}
       md_image_ref = %r{!\[(.*)\]\[(.*)\]}

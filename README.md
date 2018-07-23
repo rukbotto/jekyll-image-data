@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/rukbotto/jekyll-image-data.svg?branch=master)](https://travis-ci.org/rukbotto/jekyll-image-data)
 
-Image data for Jekyll posts and pages. Crawls generated HTML files in search of image data ("src" and "alt" attributes) and makes it available as a post/page metadata attribute.
+Image data for Jekyll posts and pages. Crawls Markdown content from posts and pages in search of image data ("src" and "alt" attributes) and makes it available as a post/page metadata attribute.
 
 ## Installation
 
@@ -45,7 +45,7 @@ or
 {% include image.liquid src="http://placehold.it/800x600" alt="Image" %}
 ```
 
-Note that the included file must be named `image.liquid` or `image.html` and must accept two parameters: `src` and `alt`.
+Note that the included file must be named `image.liquid` or `image.html` and must accept at least two parameters: `src` and `alt`.
 
 This plugin gets executed in the `:posts, :pre_render` and `:pages, :post_init` hooks. After execution, `post.data["images"]` or `page.data["images"]` will hold `alt` and `src` data for all images inside post/page:
 
