@@ -62,9 +62,16 @@ describe JekyllImageData::Crawler do
       end
     end
 
+    context "When post contains image liquid file with special chars in 'alt' attribute" do
+      it "crawls image data successfully" do
+        expect(post_images[7]["url"]).to eq("http://placehold.it/800x600")
+        expect(post_images[7]["alt"]).to eq("800x600 ~¡!@\#$%^&*()_-+=[]{}\\|;:',.¿?/")
+      end
+    end
+
     context "When post contains an excluded image" do
       it "doesn't crawl image data" do
-        expect(post_images[7]).to be_nil
+        expect(post_images[8]).to be_nil
       end
     end
 
@@ -118,9 +125,16 @@ describe JekyllImageData::Crawler do
       end
     end
 
+    context "When page contains image liquid file with special chars in 'alt' attribute" do
+      it "crawls image data successfully" do
+        expect(page_images[7]["url"]).to eq("http://placehold.it/800x600")
+        expect(page_images[7]["alt"]).to eq("800x600 ~¡!@\#$%^&*()_-+=[]{}\\|;:',.¿?/")
+      end
+    end
+
     context "When page contains an excluded image" do
       it "doesn't crawl image data" do
-        expect(page_images[7]).to be_nil
+        expect(page_images[8]).to be_nil
       end
     end
   end
