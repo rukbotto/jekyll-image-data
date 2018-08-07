@@ -23,5 +23,3 @@ collections:
   collection:
     output: true
     permalink: /:collection/:name/
-image_data:
-  exclude: "placehold.it/1x1"

@@ -38,10 +38,6 @@ describe JekyllImageData::Crawler do
         expect(post_images[3]["url"]).to eq("http://placehold.it/800x600")
         expect(post_images[3]["alt"]).to eq("800x600 http")
       end
-
-      it "doesn't crawl image data if image is excluded from crawling" do
-        expect(post_images[9]).to be_nil
-      end
     end
   end
 
@@ -78,6 +74,22 @@ describe JekyllImageData::Crawler do
     end
   end
 
+  context "When images in posts are excluded from crawling" do
+    let(:overrides) do
+      {
+        "image_data" => {
+          "exclude" => "placehold.it/1x1"
+        }
+      }
+    end
+
+    describe "Crawler.crawl" do
+      it "doesn't crawl image data" do
+        expect(post_images[9]).to be_nil
+      end
+    end
+  end
+
   context "When page contains images in Markdown format" do
     describe "Crawler.crawl" do
       it "crawls png image data" do
@@ -98,10 +110,6 @@ describe JekyllImageData::Crawler do
       it "crawls image data if 'url' attr has an external URL" do
         expect(page_images[3]["url"]).to eq("http://placehold.it/800x600")
         expect(page_images[3]["alt"]).to eq("800x600 http")
-      end
-
-      it "doesn't crawl image data if image is excluded from crawling" do
-        expect(page_images[9]).to be_nil
       end
     end
   end
@@ -139,6 +147,22 @@ describe JekyllImageData::Crawler do
     end
   end
 
+  context "When images in pages are excluded from crawling" do
+    let(:overrides) do
+      {
+        "image_data" => {
+          "exclude" => "placehold.it/1x1"
+        }
+      }
+    end
+
+    describe "Crawler.crawl" do
+      it "doesn't crawl image data" do
+        expect(page_images[9]).to be_nil
+      end
+    end
+  end
+
   context "When collection page contains images in Markdown format" do
     describe "Crawler.crawls" do
       it "crawls png image data" do
@@ -159,10 +183,6 @@ describe JekyllImageData::Crawler do
       it "crawls image data if 'url' attr has an external URL" do
         expect(collection_images[3]["url"]).to eq("http://placehold.it/800x600")
         expect(collection_images[3]["alt"]).to eq("800x600 http")
-      end
-
-      it "doesn't crawl image data if image is excluded from crawling" do
-        expect(collection_images[9]).to be_nil
       end
     end
   end
@@ -196,6 +216,22 @@ describe JekyllImageData::Crawler do
       it "crawls image data when 'alt' attr has special chars" do
         expect(collection_images[7]["url"]).to eq("http://placehold.it/800x600")
         expect(collection_images[7]["alt"]).to eq("800x600 ~¡!@\#$%^&*()_-+=[]{}\\|;:',.¿?/")
+      end
+    end
+  end
+
+  context "When images in collection pages are excluded from crawling" do
+    let(:overrides) do
+      {
+        "image_data" => {
+          "exclude" => "placehold.it/1x1"
+        }
+      }
+    end
+
+    describe "Crawler.crawl" do
+      it "doesn't crawl image data" do
+        expect(collection_images[9]).to be_nil
       end
     end
   end
