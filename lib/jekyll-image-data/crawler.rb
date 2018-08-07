@@ -15,8 +15,7 @@ module JekyllImageData
 
     def crawl(content, config)
       images = []
-      exclude = config.dig("image_data", "exclude") || ""
-      exclude = Regexp.new(exclude)
+      exclude = config.dig("image_data", "exclude") || nil
 
       content.scan(@image) do |match|
         src = match[1] || match[5] || match[8] || match[9] || match[12] || match[15] || ""
@@ -33,7 +32,7 @@ module JekyllImageData
 
       images.each do |image|
         image.delete("ref")
-        images.delete(image) if exclude.match(image["url"])
+        images.delete(image) if exclude and Regexp.new(exclude).match(image["url"])
       end
 
       images

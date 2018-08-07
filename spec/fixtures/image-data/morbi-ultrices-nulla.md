@@ -50,6 +50,8 @@ eu a orci. Mauris fermentum nec sapien eu finibus.
 
 {% include image.liquid src="http://placehold.it/800x600" alt="800x600 ~¡!@#$%^&*()_-+=[]{}\|;:',.¿?/" %}
 
+<p><img src="http://placehold.it/800x600"></p>
+
 ![1x1 excluded](http://placehold.it/1x1)
 
 [jpg]: /media/images/800x600.jpg
