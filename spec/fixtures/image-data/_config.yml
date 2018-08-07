@@ -1,18 +1,27 @@
 url: http://example.com
-
 defaults:
-  - scope:
+  -
+    scope:
       path: ""
       type: posts
     values:
       layout: default
       permalink: /posts/:title/
-
-  - scope:
+  -
+    scope:
       path: ""
       type: pages
     values:
       layout: default
-
+  -
+    scope:
+      path: ""
+      type: collection
+    values:
+      layout: default
+collections:
+  collection:
+    output: true
+    permalink: /:collection/:name/
 image_data:
   exclude: "placehold.it/1x1"
